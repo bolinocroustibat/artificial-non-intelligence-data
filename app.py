@@ -15,8 +15,6 @@ st.title("Artificial Non Intelligence Data Analysis")
 
 st.write("Answers from game's users")
 
-st.write(DATABASE_URL)
-
 connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 with connection:
     query: str = f"SELECT answer FROM answers;"
