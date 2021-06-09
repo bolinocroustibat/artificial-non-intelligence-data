@@ -11,12 +11,12 @@ DATABASE_URL = os.environ['DATABASE_URL']
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_page_config(
-    page_title="Artificial Non Intelligence - Data Analysis", page_icon="http://artificial-non-intelligence.herokuapp.com/style/favicon.ico",
+    page_title="Artificial Non Intelligence - Live Data Analysis", page_icon="http://artificial-non-intelligence.herokuapp.com/style/favicon.ico",
     layout='centered',
     initial_sidebar_state='auto'
 )
 
-st.title("Artificial Non Intelligence - Data Analysis")
+st.title("Artificial Non Intelligence - Live Data Analysis")
 
 st.write("Players's answers general trend:")
 
@@ -35,5 +35,5 @@ with connection:
     cursor.close()
 
 # df = pd.DataFrame(answers)
-sns.barplot(x=["Think it's AI", "Thinks it's human"], y=[answers[0][1], answers[1][1]])
+sns.barplot(x=["Think that's AI", "Think that's human"], y=[answers[0][1], answers[1][1]])
 st.pyplot()
