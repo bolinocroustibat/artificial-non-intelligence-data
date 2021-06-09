@@ -13,19 +13,22 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.title("Artificial Non Intelligence Data Analysis")
 
-st.write("Answers from game's users")
+st.write("Players's answers general trend:")
 
 connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 with connection:
-    query: str = f"SELECT answer FROM answers;"
     cursor = connection.cursor()
+    
+    # Get the general answers trend
+    query: str = f"SELECT answer, count(*) AS a FROM answers GROUP by answer;"
     cursor.execute(query)
     answers = cursor.fetchall()
+    
+    # Get the question with most mistakes
+    # ??
+    
     cursor.close()
 
-df = pd.DataFrame(answers)
-
-sns.displot(data=df)
+# df = pd.DataFrame(answers)
+sns.barplot(x=["Think it's AI", "Thinks it's human"], y=[answers[0][1], answers[1][1]])
 st.pyplot()
-
-st.write("Test2")
