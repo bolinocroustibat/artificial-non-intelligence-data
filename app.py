@@ -11,7 +11,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_page_config(
-    page_title="Artificial Non Intelligence - Live Data Analysis", page_icon="http://artificial-non-intelligence.herokuapp.com/style/favicon.ico",
+    page_title="Artificial Non Intelligence - Live Data Analysis", page_icon="https://artificial-non-intelligence.herokuapp.com/style/favicon.ico",
     layout='centered',
     initial_sidebar_state='auto'
 )
