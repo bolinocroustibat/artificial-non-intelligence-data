@@ -10,8 +10,13 @@ import streamlit as st
 DATABASE_URL = os.environ['DATABASE_URL']
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_page_config(
+    page_title="Artificial Non Intelligence - Data Analysis", page_icon="http://artificial-non-intelligence.herokuapp.com/style/favicon.ico",
+    layout='centered',
+    initial_sidebar_state='auto'
+)
 
-st.title("Artificial Non Intelligence Data Analysis")
+st.title("Artificial Non Intelligence - Data Analysis")
 
 st.write("Players's answers general trend:")
 
