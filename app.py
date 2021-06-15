@@ -23,12 +23,12 @@ with connection:
     cursor = connection.cursor()
 
     # Get the number of scores and the max
-    query: str = "SELECT MAX(score), count(*) AS s FROM scores;"
+    query: str = "SELECT MAX(score), count(*) AS s FROM sessions;"
     cursor.execute(query)
-    scores_count = cursor.fetchone()
+    sessions_count = cursor.fetchone()
 
     # Get the number of questions
-    query: str = "SELECT real, count(*) AS a FROM comments GROUP by real;"
+    query: str = "SELECT real, count(*) AS a FROM questions GROUP by real;"
     cursor.execute(query)
     comments_count: int = cursor.fetchall()
 
@@ -47,16 +47,16 @@ with connection:
         count(*) AS count
     FROM (
         SELECT
-            comments.id,
-            comments.content,
-            comments.real,
+            questions.id,
+            questions.content,
+            questions.real,
             answers.answer
         FROM
-            comments
-            INNER JOIN answers ON comments.id = answers.comment
+            questions
+            INNER JOIN answers ON questions.id = answers.question_id
         GROUP BY
-            comments.id,
-            comments.real,
+            questions.id,
+            questions.real,
             answers,
             answer) AS ca
     GROUP BY
@@ -69,8 +69,8 @@ with connection:
     answers = cursor.fetchall()
     cursor.close()
 
-st.markdown("<h2>Number of games played (scores)</h2>", unsafe_allow_html=True)
-st.write(scores_count[1])
+st.markdown("<h2>Number of games played (sessions)</h2>", unsafe_allow_html=True)
+st.write(sessions_count[1])
 
 st.markdown("<h2>Number of answers</h2>", unsafe_allow_html=True)
 total_answers_count: int = answers_count[0][1] + answers_count[1][1]
@@ -107,7 +107,7 @@ sns.barplot(x=["Right guesses", "Wrong guesses"], y=[right_guesses, wrong_guesse
 st.pyplot()
 
 st.markdown("<h2>Best score</h2>", unsafe_allow_html=True)
-st.write(scores_count[0])
+st.write(sessions_count[0])
 
 st.markdown("<h2>Easiest question</h2>", unsafe_allow_html=True)
 st.write(f'{best_comment[0]}: "{best_comment[1]}" ({best_comment[2]} right answers, real={best_comment[3]})')
