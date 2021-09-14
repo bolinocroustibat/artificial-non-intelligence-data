@@ -157,3 +157,4 @@ __pycache__/
 .python-version
 connect.sh
 .envrc
+settings.py
