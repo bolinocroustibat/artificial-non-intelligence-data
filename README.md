@@ -7,6 +7,19 @@ For the API, check the [dedicated API repo](https://github.com/bolinocroustibat/
 
 For the frontend, check the [dedicated frontend repo](https://github.com/bolinocroustibat/artificial-non-intelligence-frontend).
 
+## Notebooks
+
+These notebooks contain the data analysis and processing work for this project including exploratory data analysis of tweets, testing text generation capabilities, generating fake tweets, and comparing various ML and DL models in their ability to detect fake tweets.     
+
+- [Exploratory Data Analysis & Text Generation for Fake Tweets](https://colab.research.google.com/drive/1ZcTjCIe_RXHtVwk9v_z5SlwRmfdnEBfM?usp=sharing)
+- [Model Comparison & Selection to represent AI Player](https://colab.research.google.com/drive/1INR2W0NlG5qYsan94eS-hUvSOmzBO38O?usp=sharing)
+
+Preliminary R&D notebooks: 
+- [R&D-A](https://colab.research.google.com/drive/1pjQPQVu6jJOYleQ1VoCv_kRtPeVgc3NR)
+- [R&D-GPT2 Primer Text Approach](https://colab.research.google.com/drive/1NHUtwSCIZSj4I8q8KmLBY3SKtP6mTEDB)
+- [R&D-RNN Text Generation](https://colab.research.google.com/drive/1Wm9Go9oA6_wQz5gGinOfYJxkUWulvXjL)
+- [R&D-Template](https://colab.research.google.com/drive/1FevBBLTL4EByWy49a-EUx5fHmr_z6I2M)
+- [R&D-GPT2 Resources](https://colab.research.google.com/drive/1PTbX8Ncl-OiZgqut6X06a4yKZ2roGItF?usp=sharing)
 
 ## Main dependencies
 
