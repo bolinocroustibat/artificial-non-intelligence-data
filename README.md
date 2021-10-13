@@ -11,7 +11,7 @@ For the frontend, check the [dedicated frontend repo](https://github.com/bolinoc
 ## Main dependencies
 
 - Python 3.9
-- MySQL database
+- MySQL database (there were a previous version using PostgreSQL to be hosted by Heroku, but it's deprecated. Still available on [heroku branch](https://github.com/bolinocroustibat/artificial-non-intelligence-data/tree/heroku))
 - Streamlit
 
 Create a virtual environemment for the project, and install the Python dependencies packages with:
@@ -23,7 +23,6 @@ pip install -r requirements.txt
 ```sh
 poetry install
 ```
-
 
 ## Data
 
