@@ -1,3 +1,5 @@
+<img src=images/Cover_photo_Artifical_NonIntelligence.png>
+
 # Artificial Non Intelligence - Data Analysis
 
 A deep learning generated web game to raise awareness about AI and trolls.
