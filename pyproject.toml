@@ -2,7 +2,11 @@
 name = "artificial-non-intelligence-data"
 version = "0.2.0"
 description = ""
-authors = ["Adrien Carpentier <moi@adriencarpentier.com>", "Philip Lin <philip.lin@gmail.com>", "Dilnoza Mirdjalilova <dmirdjalilova@gmail.com>"]
+authors = [
+    "Adrien Carpentier <moi@adriencarpentier.com>",
+    "Philip Lin <philip.lin@gmail.com>",
+    "Dilnoza Mirdjalilova <dmirdjalilova@gmail.com>",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -13,6 +17,33 @@ streamlit = "^0.88.0"
 
 [tool.poetry.dev-dependencies]
 
+
+[tool.pdm]
+includes = []
+[tool.pdm.dev-dependencies]
+dev = []
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
+
+[project]
+name = "artificial-non-intelligence-data"
+version = "0.2.0"
+description = ""
+authors = [
+    { name = "Adrien Carpentier", email = "moi@adriencarpentier.com" },
+    { name = "Philip Lin", email = "philip.lin@gmail.com" },
+    { name = "Dilnoza Mirdjalilova", email = "dmirdjalilova@gmail.com" },
+]
+dependencies = [
+    "pandas<2.0.0,>=1.2.4",
+    "PyMySQL<2.0.0,>=1.0.2",
+    "seaborn<1.0.0,>=0.11.1",
+    "streamlit<1.0.0,>=0.88.0",
+]
+requires-python = ">=3.9,<4.0"
+dynamic = ["classifiers", "classifiers"]
+license = { text = "MIT" }
+
+[project.urls]
+homepage = ""

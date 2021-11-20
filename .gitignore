@@ -145,6 +145,10 @@ dmypy.json
 # Poetry
 poetry.lock
 
+# PDM
+pdm.lock
+.pdm.toml
+
 *.egg-info
 .coverage
 .ipynb_checkpoints
@@ -152,6 +156,7 @@ poetry.lock
 raw_data/
 **/__pycache__/
 __pycache__/
+__pypackages__/
 .env
 
 .python-version
