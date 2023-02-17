@@ -1,35 +1,3 @@
-[tool.poetry]
-name = "artificial-non-intelligence-data"
-version = "0.2.0"
-description = ""
-authors = [
-    "Adrien Carpentier <moi@adriencarpentier.com>",
-    "Philip Lin <philip.lin@gmail.com>",
-    "Dilnoza Mirdjalilova <dmirdjalilova@gmail.com>",
-]
-
-[tool.poetry.dependencies]
-python = "^3.9"
-pandas = "^1.2.4"
-PyMySQL = "^1.0.2"
-seaborn = "^0.11.1"
-streamlit = "^0.88.0"
-
-[tool.poetry.dev-dependencies]
-
-
-[tool.poetry.group.dev.dependencies]
-black = "^23.1.0"
-ruff = "^0.0.247"
-
-[tool.pdm]
-includes = []
-[tool.pdm.dev-dependencies]
-dev = []
-[build-system]
-requires = ["pdm-pep517"]
-build-backend = "pdm.pep517.api"
-
 [project]
 name = "artificial-non-intelligence-data"
 version = "0.2.0"
@@ -51,3 +19,36 @@ license = { text = "MIT" }
 
 [project.urls]
 homepage = ""
+
+
+[tool.poetry]
+name = "artificial-non-intelligence-data"
+version = "0.2.0"
+description = ""
+authors = [
+    "Adrien Carpentier <moi@adriencarpentier.com>",
+    "Philip Lin <philip.lin@gmail.com>",
+    "Dilnoza Mirdjalilova <dmirdjalilova@gmail.com>",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.2.4"
+PyMySQL = "^1.0.2"
+seaborn = "^0.11.1"
+streamlit = "^0.88.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+ruff = "^0.0.247"
+
+
+[tool.pdm]
+includes = []
+
+[tool.pdm.dev-dependencies]
+dev = []
+
+[build-system]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
