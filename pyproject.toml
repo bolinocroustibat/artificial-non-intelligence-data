@@ -18,6 +18,10 @@ streamlit = "^0.88.0"
 [tool.poetry.dev-dependencies]
 
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+ruff = "^0.0.247"
+
 [tool.pdm]
 includes = []
 [tool.pdm.dev-dependencies]
