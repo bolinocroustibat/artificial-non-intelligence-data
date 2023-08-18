@@ -41,7 +41,7 @@ with connection:
     # Get the number of questions
     query: str = "SELECT real, count(*) AS a FROM questions GROUP by real;"
     cursor.execute(query)
-    comments_count: int = cursor.fetchall()
+    comments_count = cursor.fetchall()
 
     # Get the general answers trend
     query: str = "SELECT answer, count(*) AS a FROM answers GROUP by answer;"
