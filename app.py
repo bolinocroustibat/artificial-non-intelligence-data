@@ -1,6 +1,7 @@
 import pandas as pd
 import psycopg
 import seaborn as sns
+import sentry_sdk
 import streamlit as st
 
 from settings import (
@@ -9,8 +10,21 @@ from settings import (
     DATABASE_PASSWORD,
     DATABASE_USER,
     DATABASE_PORT,
+    SENTRY_DSN,
 )
 
+
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    # environment=ENVIRONMENT,
+    # release=f"{APP_NAME}@{VERSION}",
+    traces_sample_rate=1.0,
+    # Experimental profiling
+    _experiments={
+        "profiles_sample_rate": 1.0,
+    },
+    
+)
 
 st.set_option("deprecation.showPyplotGlobalUse", False)
 st.set_page_config(

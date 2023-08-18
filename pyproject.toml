@@ -1,6 +1,6 @@
 [project]
 name = "artificial-non-intelligence-data"
-version = "0.3.0"
+version = "0.3.1"
 description = ""
 authors = [
     { name = "Adrien Carpentier", email = "moi@adriencarpentier.com" },
@@ -12,6 +12,7 @@ dependencies = [
     "psycopg>=3.1.10",
     "psycopg-binary>=3.1.10",
     "seaborn<1.0.0,>=0.11.1",
+    "sentry-sdk>=1.29.2",
     "streamlit>=1.25.0",
 ]
 requires-python = ">=3.11,<3.12"
@@ -24,7 +25,7 @@ homepage = ""
 
 [tool.poetry]
 name = "artificial-non-intelligence-data"
-version = "0.3.0"
+version = "0.3.1"
 description = ""
 authors = [
     "Adrien Carpentier <moi@adriencarpentier.com>",
@@ -38,6 +39,7 @@ pandas = "^1.2.4"
 psycopg = "^3.1.10"
 psycopg-binary = "^3.1.10"
 seaborn = "^0.11.1"
+sentry-sdk = "^1.29.2"
 streamlit = "^1.25.0"
 
 [tool.poetry.group.dev.dependencies]
