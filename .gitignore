@@ -4,6 +4,9 @@ Thumbs.db
 #Ignore MacOS files
 *.DS_Store
 
+# VScode
+.vscode
+
 #Ignore files build by Visual Studio
 *.obj
 *.exe
@@ -103,10 +106,10 @@ target/
 profile_default/
 ipython_config.py
 
-# pyenv
+# Pyenv
 .python-version
 
-# pipenv
+# Pipenv
 *.lock
 
 # celery beat schedule file
@@ -146,8 +149,9 @@ dmypy.json
 poetry.lock
 
 # PDM
-pdm.lock
 .pdm.toml
+.pdm-python
+pdm.lock
 
 *.egg-info
 .coverage
@@ -158,8 +162,8 @@ raw_data/
 __pycache__/
 __pypackages__/
 .env
-
-.python-version
-connect.sh
 .envrc
+
+# Project specific
+connect.sh
 settings.py
