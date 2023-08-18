@@ -1,5 +1,5 @@
 import pandas as pd
-import pymysql
+import psycopg
 import seaborn as sns
 import streamlit as st
 
@@ -22,12 +22,12 @@ st.set_page_config(
 
 st.title("Artificial Non Intelligence - Live Data Analysis")
 
-connection = pymysql.connect(
+connection = psycopg.connect(
     host=DATABASE_HOST,
+    port=DATABASE_PORT,
+    dbname=DATABASE_DB,
     user=DATABASE_USER,
     password=DATABASE_PASSWORD,
-    database=DATABASE_DB,
-    port=DATABASE_PORT,
 )
 
 with connection:
@@ -39,7 +39,7 @@ with connection:
     sessions_count = cursor.fetchone()
 
     # Get the number of questions
-    query: str = "SELECT `real`, count(*) AS a FROM questions GROUP by `real`;"
+    query: str = "SELECT real, count(*) AS a FROM questions GROUP by real;"
     cursor.execute(query)
     comments_count: int = cursor.fetchall()
 

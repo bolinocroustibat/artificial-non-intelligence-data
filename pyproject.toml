@@ -1,6 +1,6 @@
 [project]
 name = "artificial-non-intelligence-data"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 authors = [
     { name = "Adrien Carpentier", email = "moi@adriencarpentier.com" },
@@ -9,11 +9,12 @@ authors = [
 ]
 dependencies = [
     "pandas<2.0.0,>=1.2.4",
-    "PyMySQL<2.0.0,>=1.0.2",
+    "psycopg>=3.1.10",
+    "psycopg-binary>=3.1.10",
     "seaborn<1.0.0,>=0.11.1",
     "streamlit<1.0.0,>=0.88.0",
 ]
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.9,<3.10"
 dynamic = ["classifiers", "classifiers"]
 license = { text = "MIT" }
 
@@ -23,7 +24,7 @@ homepage = ""
 
 [tool.poetry]
 name = "artificial-non-intelligence-data"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 authors = [
     "Adrien Carpentier <moi@adriencarpentier.com>",
@@ -34,7 +35,8 @@ authors = [
 [tool.poetry.dependencies]
 python = "^3.9"
 pandas = "^1.2.4"
-PyMySQL = "^1.0.2"
+psycopg = "^3.1.10"
+psycopg-binary = "^3.1.10"
 seaborn = "^0.11.1"
 streamlit = "^0.88.0"
 
