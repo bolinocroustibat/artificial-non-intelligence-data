@@ -10,21 +10,22 @@ from settings import (
     DATABASE_PASSWORD,
     DATABASE_USER,
     DATABASE_PORT,
+    ENVIRONMENT,
     SENTRY_DSN,
 )
 
-
-sentry_sdk.init(
-    dsn=SENTRY_DSN,
-    # environment=ENVIRONMENT,
-    # release=f"{APP_NAME}@{VERSION}",
-    traces_sample_rate=1.0,
-    # Experimental profiling
-    _experiments={
-        "profiles_sample_rate": 1.0,
-    },
-    
-)
+if ENVIRONMENT != "dev":
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        environment=ENVIRONMENT,
+        # release=f"{APP_NAME}@{VERSION}",
+        traces_sample_rate=1.0,
+        # Experimental profiling
+        _experiments={
+            "profiles_sample_rate": 1.0,
+        },
+        
+    )
 
 st.set_option("deprecation.showPyplotGlobalUse", False)
 st.set_page_config(
