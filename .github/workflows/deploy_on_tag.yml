@@ -34,7 +34,7 @@ jobs:
           script: |
             cd /root/www/artificial-non-intelligence-data
             source /root/www/artificial-non-intelligence-data/.venv/bin/activate
-            pip install -r /root/www/artificial-non-intelligence-data/requirements.txt
+            pip install -r /root/www/artificial-non-intelligence-data/requirements.lock
             sudo systemctl restart ani-data.service
 
       - name: Create Sentry release

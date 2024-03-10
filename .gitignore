@@ -109,8 +109,8 @@ ipython_config.py
 # Pyenv
 .python-version
 
-# Pipenv
-*.lock
+# Rye
+requirements-dev.lock
 
 # celery beat schedule file
 celerybeat-schedule
