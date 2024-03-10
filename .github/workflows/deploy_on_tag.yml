@@ -32,9 +32,9 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /root/www/artificial-non-intelligence-data
-            source /root/www/artificial-non-intelligence-data/.venv/bin/activate
-            pip install -r /root/www/artificial-non-intelligence-data/requirements.lock
+            cd /home/www/artificial-non-intelligence-data
+            source /home/www/artificial-non-intelligence-data/.venv/bin/activate
+            pip install -r /home/www/artificial-non-intelligence-data/requirements.lock
             sudo systemctl restart ani-data.service
 
       - name: Create Sentry release
