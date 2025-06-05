@@ -56,12 +56,11 @@ jobs:
         run: rsync -avz --exclude '.git' --chown=github:www-data --chmod=Dg=rwx,Fg=rwx ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/www/artificial-non-intelligence-data/
 
       - name: Execute server commands for deploy
-        uses: appleboy/ssh-action@v1.2.0
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script_stop: true
           script: |
             cd /home/www/artificial-non-intelligence-data
             /usr/local/bin/uv sync
