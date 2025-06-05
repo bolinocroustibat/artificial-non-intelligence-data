@@ -1,21 +1,26 @@
+import os
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import psycopg
 import seaborn as sns
 import sentry_sdk
 import streamlit as st
+from dotenv import load_dotenv
 
-from settings import (
-    DATABASE_DB,
-    DATABASE_HOST,
-    DATABASE_PASSWORD,
-    DATABASE_PORT,
-    DATABASE_USER,
-    ENVIRONMENT,
-    SENTRY_DSN,
-)
+# Load environment variables from .env file
+load_dotenv()
 
-if ENVIRONMENT != "dev":
+# Get environment variables
+ENVIRONMENT = os.getenv("ENVIRONMENT", "unknown")
+POSTGRES_HOST = os.getenv("POSTGRES_HOST", "127.0.0.1")
+POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "postgres")
+POSTGRES_PORT = int(os.getenv("POSTGRES_PORT", "5432"))
+POSTGRES_DB = os.getenv("POSTGRES_DB")
+SENTRY_DSN = os.getenv("SENTRY_DSN")
+
+if ENVIRONMENT != "local":
     sentry_sdk.init(
         dsn=SENTRY_DSN,
         environment=ENVIRONMENT,
@@ -38,11 +43,11 @@ st.set_page_config(
 st.title("Artificial Non Intelligence - Live Data Analysis")
 
 connection = psycopg.connect(
-    host=DATABASE_HOST,
-    port=DATABASE_PORT,
-    dbname=DATABASE_DB,
-    user=DATABASE_USER,
-    password=DATABASE_PASSWORD,
+    host=POSTGRES_HOST if POSTGRES_HOST else None,
+    port=POSTGRES_PORT,
+    dbname=POSTGRES_DB,
+    user=POSTGRES_USER if POSTGRES_USER else None,
+    password=POSTGRES_PASSWORD if POSTGRES_PASSWORD else None,
 )
 
 with connection:
