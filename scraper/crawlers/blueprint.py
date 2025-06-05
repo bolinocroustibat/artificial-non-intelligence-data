@@ -1,10 +1,10 @@
-from peewee import IntegrityError
-import typer
 import re
-import requests
-from bs4 import BeautifulSoup
 
-from models import Website, Article, Comment
+import requests
+import typer
+from bs4 import BeautifulSoup
+from models import Article, Comment, Website
+from peewee import IntegrityError
 
 
 class CommentsCrawler():
@@ -98,7 +98,7 @@ class CommentsCrawler():
         comment = Comment(author=author, message=message)
         try:
             comment.article = Article.get(id=article_id)
-        except Exception as e:
+        except Exception:
             self.error("	Couldn't associate the comment with an article.")
         try:
             comment.save()

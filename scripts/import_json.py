@@ -1,8 +1,8 @@
 import json
-import re
 import os
-import psycopg2
+import re
 
+import psycopg2
 
 DATABASE_URL = os.environ['DATABASE_URL']
 

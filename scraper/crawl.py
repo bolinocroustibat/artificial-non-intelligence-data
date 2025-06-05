@@ -1,5 +1,4 @@
 import typer
-
 from crawlers.lefigaro import FigaroCrawler
 from crawlers.mirror import MirrorCrawler
 from crawlers.oan import OANCrawler

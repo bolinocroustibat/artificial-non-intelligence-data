@@ -1,6 +1,6 @@
 import datetime
-from peewee import *
 
+from peewee import *
 
 db = SqliteDatabase('../data/db.sqlite3')
 

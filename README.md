@@ -34,9 +34,9 @@ Create a virtual environemment for the project, and install the Python dependenc
 pip install -r requirements.txt
 ```
 
-...or, if you use [Poetry](https://python-poetry.org/) (which is much better and strongly advised):
+...or, if you use uv:
 ```sh
-poetry install
+uv sync
 ```
 
 ## Data
@@ -57,7 +57,7 @@ DATABASE_DB="artificial-non-intelligence"
 ```
 
 ```sh
-streamlit run app.py
+uv run streamlit run app.py
 ```
 
 

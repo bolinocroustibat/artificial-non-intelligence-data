@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 import psycopg
 import seaborn as sns
@@ -8,8 +9,8 @@ from settings import (
     DATABASE_DB,
     DATABASE_HOST,
     DATABASE_PASSWORD,
-    DATABASE_USER,
     DATABASE_PORT,
+    DATABASE_USER,
     ENVIRONMENT,
     SENTRY_DSN,
 )
@@ -27,7 +28,6 @@ if ENVIRONMENT != "dev":
         
     )
 
-st.set_option("deprecation.showPyplotGlobalUse", False)
 st.set_page_config(
     page_title="Artificial Non Intelligence - Live Data Analysis",
     page_icon="https://artificial-non-intelligence.herokuapp.com/style/favicon.ico",
@@ -88,14 +88,16 @@ st.markdown("<h2>Number of games played (sessions)</h2>", unsafe_allow_html=True
 st.write(sessions_count[1])
 
 st.markdown("<h2>Number of answers</h2>", unsafe_allow_html=True)
-total_answers_count: int = answers_count[0][1] + answers_count[1][1]
+total_answers_count: int = sum(row[1] for row in answers_count)
 st.write(total_answers_count)
 
 df = pd.DataFrame(answers, columns=["id", "content", "real", "answer", "count"])
 
 # Verify consistency of total number of answers
-# st.write(df['count'].sum(axis = 0, skipna = True))
-# st.write(total_answers_count)
+# st.write("Sanity check:")
+# st.write("Sum of df['count']: ", df['count'].sum())
+# st.write("total_answers_count: ", total_answers_count)
+# st.write("answers_count: ", answers_count)
 assert df['count'].sum(axis = 0, skipna = True) == total_answers_count
 
 # Count total number of human right guesses
@@ -114,8 +116,9 @@ accuracy: float = round(right_guesses / total_answers_count, 4)
 st.markdown("<h2>Current players accuracy</h2>", unsafe_allow_html=True)
 st.write(accuracy)
 
-sns.barplot(x=["Right guesses", "Wrong guesses"], y=[right_guesses, wrong_guesses])
-st.pyplot()
+fig, ax = plt.subplots()
+sns.barplot(x=["Right guesses", "Wrong guesses"], y=[right_guesses, wrong_guesses], ax=ax)
+st.pyplot(fig)
 
 # st.markdown("<h2>Easiest question</h2>", unsafe_allow_html=True)
 # st.write(
@@ -131,7 +134,8 @@ st.markdown("<h2>Best score</h2>", unsafe_allow_html=True)
 st.write(sessions_count[0])
 
 st.markdown("<h2>Current dataset</h2>", unsafe_allow_html=True)
-total_comments_count: int = comments_count[0][1] + comments_count[1][1]
+total_comments_count: int = sum(row[1] for row in comments_count)
 st.write(f"Number of questions in the database: {total_comments_count}")
-sns.barplot(x=["AI", "Real"], y=[comments_count[0][1], comments_count[1][1]])
-st.pyplot()
+fig2, ax2 = plt.subplots()
+sns.barplot(x=["AI", "Real"], y=[comments_count[0][1], comments_count[1][1]], ax=ax2)
+st.pyplot(fig2)
