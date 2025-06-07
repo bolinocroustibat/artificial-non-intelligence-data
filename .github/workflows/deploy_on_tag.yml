@@ -32,7 +32,7 @@ jobs:
           commit_user_email: me@adriencarpentier.com
           commit_author: Adrien Carpentier <me@adriencarpentier.com>
 
-  deploy:
+  deploy-prod:
     name: Deploy ${{ github.ref_name }} to prod
     runs-on: ubuntu-latest
     needs: bump-version
@@ -97,8 +97,9 @@ jobs:
             # Login to GitHub Container Registry
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
-            # Set image for the current deployment
-            export IMAGE="ghcr.io/${{ github.repository }}:${{ github.ref_name }}"
+            # Set Docker image variables
+            export GITHUB_REPOSITORY="${{ github.repository }}"
+            export TAG="${{ github.ref_name }}"
 
             # Pull and restart services
             docker compose pull

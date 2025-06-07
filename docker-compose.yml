@@ -1,7 +1,7 @@
 services:
   app:
     container_name: ana-data
-    image: ${IMAGE:-ghcr.io/bolinocroustibat/ani-data:latest}
+    image: ghcr.io/${GITHUB_REPOSITORY}:${TAG:-latest}
     build:
       context: .
     ports:
