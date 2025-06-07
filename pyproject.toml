@@ -1,6 +1,6 @@
 [project]
 name = "artificial-non-intelligence-data"
-version = "0.5.2"
+version = "0.5.3"
 description = ""
 authors = [
     { name = "Adrien Carpentier", email = "moi@adriencarpentier.com" },
