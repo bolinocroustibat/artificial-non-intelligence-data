@@ -5,9 +5,11 @@ services:
     build:
       context: .
     ports:
-      - "8501:8501"
+      - "${APP_PORT:-8501}:8501"
     environment:
       - ENVIRONMENT=${ENVIRONMENT:-unknown}
+      # host.docker.internal is a special DNS name that resolves to the host machine's IP address
+      # This allows the container to access services running on the host (like PostgreSQL) in both development and production
       - POSTGRES_HOST=host.docker.internal
       - POSTGRES_PORT=${POSTGRES_PORT:-5432}
       - POSTGRES_DB=${POSTGRES_DB}
