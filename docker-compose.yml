@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: ana-data
+    container_name: ani-data
     image: ghcr.io/${GITHUB_REPOSITORY}:${TAG:-latest}
     build:
       context: .
